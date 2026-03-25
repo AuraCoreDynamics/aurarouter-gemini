@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurarouter-gemini"
+version = "0.5.1"
+description = "Google Gemini MCP provider server for AuraRouter"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+authors = [
+    { name = "AuraCore Dynamics Inc." },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "google-genai>=1.0",
+    "mcp[cli]",
+]
+
+[project.entry-points."aurarouter.providers"]
+gemini = "aurarouter_gemini:get_provider_metadata"
+
+[tool.setuptools.packages.find]
+where = ["src"]
